@@ -1,5 +1,5 @@
 # eltjek
-Navigate to the WP_eltjek folder Start the server
+Navigate to the WP_eltjek folder and start the server
 ```
 yarn start
 ```
