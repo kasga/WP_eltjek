@@ -1,0 +1,44 @@
+.o-headline1{
+    font-family: $font-bold;
+    color:$black;
+    font-size:35px;
+    line-height: 1.2;
+}
+
+.o-headline2{
+    font-family: $font-bold;
+    color:$black;
+    font-size:22px;
+}
+
+.o-headline3{
+    font-family: $font-bold;
+    color:$black;
+    font-size:19px;
+}
+
+
+
+/* TABLET PORTRAIT */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  
+}
+
+/* TABLET LANDSCAPE */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  
+}
+
+/* PHONE LANDSCAPE */
+@media only screen and (max-device-width: 767px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  
+
+}
+
+/* PHONE PORTRAIT */
+@media only screen and (max-device-width: 767px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  .o-headline1{
+    font-size:35px;
+    }
+}
+

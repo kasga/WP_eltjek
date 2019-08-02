@@ -1,0 +1,133 @@
+#o-processbar{
+
+    .o-process-circles{
+        display: flex;
+        justify-content: center;
+
+        .o-process-circles-container{
+            position: relative;
+            display: flex;
+            .o-process-line{
+                position: absolute;
+                top:22px;
+                left:0;
+                height:1px;
+                width:calc(100% - 50px);
+                background-color: $sand;
+                margin:0 30px;
+            }
+            .o-process-circle-container{
+                position:relative;
+                .o-process-circle{
+                    display: block;
+                    text-decoration: none;
+                    position:relative;
+                    font-family: $font-bold;
+                    width: 44px;
+                    height:44px;
+                    text-align: center;
+                    border: 1px solid $sand;
+                    border-radius: 100px;
+                    margin: 0 20px;
+                    line-height: 43px;
+                    background-color: $white;
+                    z-index:5;
+                    cursor:pointer;
+
+                    .o-checkmark{
+                        padding-top:2px; 
+                        path{
+                            fill:$black;
+                        }
+                    }
+
+                    &.visited{
+                        background-color:$sand;
+                        color:$white;
+
+                        .o-checkmark path{
+                            fill:$white;
+                        }
+                    }
+                }
+
+
+                .o-process-circle-label{
+                    font-size: 14px;
+                    position: absolute;
+                    bottom:-30px;
+                    left:50%;
+                    width:200px;
+                    text-align: center;
+                    color:$black;
+                    font-family: $font-regular;
+                    margin-left:-100px;
+                    opacity:0;
+
+                    transition:opacity 500ms;
+                }
+
+                .o-process-circle-label.show{
+                    opacity: 1;
+                }
+            }
+
+            .o-process-circle-container:last-child .o-process-circle{
+                
+                &.visited{
+                    background-color:$green;
+                    border: 1px solid $green;
+                    color:$white;
+                }
+            }
+            
+        }
+    }
+}
+
+
+
+
+
+
+/* TABLET PORTRAIT */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  
+}
+
+/* TABLET LANDSCAPE */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  
+}
+
+/* PHONE LANDSCAPE */
+@media only screen and (max-device-width: 767px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  #o-processbar{
+    .o-process-circles{
+        .o-process-circles-container{
+            .o-process-circle-container{
+                .o-process-circle{
+                    margin:0 5px;
+                }
+            }
+        }
+    }
+  }
+
+}
+
+/* PHONE PORTRAIT */
+@media only screen and (max-device-width: 767px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  #o-processbar{
+    .o-process-circles{
+        .o-process-circles-container{
+            .o-process-circle-container{
+                .o-process-circle{
+                    margin:0 5px;
+                }
+            }
+        }
+    }
+  }
+  
+}

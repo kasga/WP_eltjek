@@ -1,0 +1,797 @@
+#o-result{
+    position: relative;
+    display:flex;
+    max-width:1300px;
+    margin: 0 auto;
+
+    #o-tips-table{
+        display:none;
+        background-color: $blue;
+    }
+
+    #o-tips-table p{
+        font-weight: bold;
+    }
+
+    .o-content-container{
+        text-align: center;
+    }
+
+    .o-leftside-img{
+        display: none;
+        width:350px;
+        min-height:500px;
+        background-image: url(https://orsted.dk/-/media/WWW/Assets/DCS/projects/el-tjek/static/media/result);    
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .o-rightside-content{
+        position: relative;
+        padding: 40px 70px 70px 70px;
+        width: 100%;
+        text-align:center;
+        overflow: hidden;
+    }
+
+    .o-headline1{
+        margin-bottom: 8px;
+    }
+
+    .o-conclusion{
+        .o-subheading{
+            padding:0 7%;
+        }
+    }
+    .o-tips-container{
+        position: relative;
+        display: flex;
+        justify-content: left;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        overflow: hidden;
+        max-height: 450px;
+        height:auto;
+        margin-top:40px;
+        padding: 40px 25px 100px 25px;
+        background-color: $green;
+        transition: max-height 500ms ease-out;
+        border-radius:4px;
+
+        .o-headline2{
+            font-family: $font-regular;
+        }
+
+        &.active{
+            height:auto;
+            max-height:800px;
+        }
+    }
+
+    .o-tips-toggle{
+        position: absolute;
+        bottom:0;
+        left:0;
+        height:130px;
+        width: 100%;
+        background: -moz-linear-gradient(top, rgba(142,205,200,0) 0%, rgba(142,205,200,1) 40%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(142,205,200,0) 0%,rgba(142,205,200,1) 40%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(142,205,200,0) 0%,rgba(142,205,200,1) 40%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008ecdc8', endColorstr='#8ecdc8',GradientType=0 ); /* IE6-9 */
+        
+    }
+
+    .o-tips-toggle-trigger{
+        display: inline-block;
+        border-radius: 100px;
+        margin-top:70px;
+        text-align: center;
+        font-family: $font-bold;
+        padding:8px 25px;
+        color: $white;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .o-tip{
+        width:33%;
+        padding: 15px 35px;
+        text-align: left;
+        
+        white-space: pre-wrap;
+
+
+        .o-tip-img{
+            margin-top: 30px;
+        }
+
+        .o-xtra-margin{
+            margin-top:50px;
+        }
+
+
+        .o-tip-title{
+            font-family: $font-bold;
+            margin:20px 0 5px 0;
+            font-size:19px;
+            
+        }
+    }
+
+
+    .o-comparison{
+        margin-top:40px;
+        border: 1px solid $sand;
+        padding: 35px 25px 65px 25px;
+        border-radius: 4px;
+
+        .o-comparison-top{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            
+            .o-comparison-you-box{
+                display: inline-block;
+                width:20px;
+                height:20px;
+                background-color: $blue;
+                margin-right:10px;
+            }
+
+            .o-comparison-average-box{
+                display: inline-block;
+                width:20px;
+                height:20px;
+                background-color: $sand;
+                margin:0 10px 0 60px;
+            }
+        }
+
+        .o-comparison-boxes{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            width: 100%;
+
+            .o-comparison-box{
+                text-align: center;
+                width:50%;
+                padding:0 3% 0 3%;
+                margin-top:50px;
+
+                .o-label{
+                    font-family: $font-bold;
+                    margin-top:5px;
+                }
+
+                .o-comparison-bars{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width:100%;
+
+                    .o-comparison-bar{
+                        padding:0 0 0 0;
+                        display: flex;
+                        width:100%;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top:30px;
+                        
+                        .o-comparison-bar-label{
+                            width:50%;
+                            text-align: left;
+                        }
+
+                        .o-comparison-bars-container{
+                            position:relative;
+                            width:50%;
+                            height:25px;
+
+                            .o-comparison-tooltip-container{
+                                position: relative;
+                                text-align: center;
+                            }
+
+                            .o-comparison-tooltip{
+                                position: absolute;
+                                bottom:10px;
+                                border:1px solid $black;
+                                padding: 10px 15px;
+                                background-color: white;
+                                z-index: 10;
+                                font-size: 14px;
+                                font-family: $font-bold;
+                                box-shadow: 0 0 20px 0 rgba(0,0,0,0.25);
+                            }
+                            .o-comparison-tooltip:after, .o-comparison-tooltip:before {
+                                top: 100%;
+                                left: 15px;
+                                border: solid transparent;
+                                content: " ";
+                                height: 0;
+                                width: 0;
+                                position: absolute;
+                                pointer-events: none;
+                            }
+
+                            .o-comparison-tooltip:after {
+                                border-color: rgba(255, 255, 255, 0);
+                                border-top-color: #ffffff;
+                                border-width: 6px;
+                                margin-left: -6px;
+                            }
+                            .o-comparison-tooltip:before {
+                                border-color: rgba(59, 73, 86, 0);
+                                border-top-color: #3b4956;
+                                border-width: 7px;
+                                margin-left: -7px;
+                            }
+
+                            .o-comparison-bar-lead{
+                                position: absolute;
+                                top:0;
+                                left:0;
+                                background-color: $sand;
+                                opacity: .2;
+                                width:100%;
+                                height:25px;
+                                border-radius: 0 100px 100px 0;
+                                
+                            }
+
+                            .o-comparison-bar-you{
+                                position: absolute;
+                                width:0%;
+                                top:0;
+                                left:0;
+                                height:15px;
+                                background-color: $blue;
+                                border-radius: 0 50px 50px 0;
+                                z-index: 2;
+                                cursor: pointer;
+                                transition:all 1s ease-out; 
+
+                            }
+
+
+                            .o-comparison-bar-average{
+                                position: absolute;
+                                width:0%;
+                                top:10px;
+                                left:0;
+                                height:15px;
+                                background-color: $sand;
+                                border-radius: 0 50px 50px 0;
+                                z-index: 0;
+                                cursor: pointer;
+                                transition:all 1s ease-out; 
+                            }
+
+                            .o-comparison-tooltip-you{
+                                color:$blue
+                            }
+
+                            .o-comparison-tooltip-average{
+                                color:$dark-sand;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .o-pdf-download{
+        position: relative;
+        display: inline-block;
+        margin-top:40px;
+    }
+
+    .pdfBtnBounce{
+        animation-name: PDFBOUNCE;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1.4s;
+        transform-origin: center center;
+    }
+
+    @-webkit-keyframes PDFBOUNCE{
+    0%   { transform:scale(1,1) }
+    20% { transform:scale(1.1, 1.1) }
+    40%   { transform:scale(1,1) }
+    60% { transform:scale(1.1, 1.1) }
+    80%   { transform:scale(1,1) }
+    100%   { transform:scale(1,1) }
+    }
+    @-moz-keyframes PDFBOUNCE{
+    0%   { transform:scale(1,1) }
+    20% { transform:scale(1.1, 1.1) }
+    40%   { transform:scale(1,1) }
+    60% { transform:scale(1.1, 1.1) }
+    80%   { transform:scale(1,1) }
+    100%   { transform:scale(1,1) }
+    }
+    @-o-keyframes PDFBOUNCE{
+    0%   { transform:scale(1,1) }
+    20% { transform:scale(1.1, 1.1) }
+    40%   { transform:scale(1,1) }
+    60% { transform:scale(1.1, 1.1) }
+    80%   { transform:scale(1,1) }
+    100%   { transform:scale(1,1) }
+    }
+    @keyframes PDFBOUNCE{
+    0%   { transform:scale(1,1) }
+    20% { transform:scale(1.1, 1.1) }
+    40%   { transform:scale(1,1) }
+    60% { transform:scale(1.1, 1.1) }
+    80%   { transform:scale(1,1) }
+    100%   { transform:scale(1,1) }
+    }
+
+
+    .o-selfservice-container{
+        display: flex;
+        align-items: flex-end;
+        margin-top:60px;
+        position: relative;
+        width:100%;
+        height:350px;
+
+        .o-selfservice-app-content{
+            display: flex;
+            align-items: center;
+            padding-left: 190px;
+            width:100%;
+            height:100%;
+            img{
+                margin-top:20px;
+                width:170px;
+                transition: all 200ms ease-in-out;
+            }
+
+            img:hover{
+                transform: scale(1.05);
+            }
+
+            .o-headline2{
+                line-height: 1.2;
+            }
+        }
+        
+        .o-selfservice-app{
+            width: 50%;
+            height:100%;
+            background-image: url(https://orsted.dk/-/media/WWW/Assets/DCS/projects/el-tjek/static/media/app);
+            background-size: cover;
+            background-position: left center;
+        }
+        
+        .o-selfservice{
+            display: flex;
+            align-content:flex-end;
+            align-items: flex-end;
+            flex-direction:column;
+            justify-content:flex-end;
+            width:50%;
+            height:100%;
+            text-align: left;
+            padding:30px;
+            background-color: $purple;
+            .o-headline1{
+                width: 100%;
+                color:$yellow;
+            }
+            .o-btn{
+                align-self: flex-start;
+                margin-top:12px;
+                display:inline-block;
+            }
+        }
+    }
+
+
+    .o-orstedshop{
+        display: flex;
+        align-items: flex-end;
+        margin-top:60px;
+        position: relative;
+        width:100%;
+        height:350px;
+        border: 1px solid $sand;
+        border-radius: 4px ;
+        overflow: hidden;
+
+        .o-orstedshop-img{
+            display:flex;
+            align-items: flex-end;
+            background-image: url(https://orsted.dk/-/media/WWW/Assets/DCS/projects/el-tjek/static/media/philipshue);
+            background-size: cover;
+            background-position: right center;
+            width: 50%;
+            height: 100%;
+            .o-orstedshop-img-content{
+                width:100%;
+                padding:60px 30px 30px 30px;
+                text-align: left;
+                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.41) 100%);
+                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.41) 100%);
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.41) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#69000000',GradientType=0 );
+                
+                .o-btn{
+                    margin-top:12px;
+                    display:inline-block;
+                }
+            }
+        }
+        
+        .o-orstedshop-txt{
+            width:50%;
+            text-align: left;
+            padding:30px;
+            .o-btn{
+                margin-top:12px;
+                display:inline-block;
+            }
+        }
+    }
+
+    .o-usage-negative{
+        color:$red;
+    }
+    .o-usage-positive{
+        color:$green;
+    }
+}
+
+
+
+/* TABLET LANDSCAPE */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  
+
+    
+}
+
+
+
+/* TABLET PORTRAIT */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  #o-result{
+    .o-leftside-img{
+        display: none;
+    }
+
+    .o-rightside-content{
+        padding: 40px 20px 70px 20px;
+    }
+
+    // TIPS
+    .o-tips-container{
+        flex-direction: column;
+        flex-wrap: nowrap
+    }
+
+    .o-tips-container.active{
+        max-height: 3000px;
+    }
+
+    .o-tip{
+        width:100%;
+        padding:15px 0;
+        text-align: center;
+    }
+
+    //COMPARISON
+    .o-comparison-top{
+        flex-direction: column;
+    }
+
+    .o-comparison .o-comparison-top{
+        align-items:flex-start;
+
+        .o-comparison-average-box{
+            margin-left:0;
+        }
+    }
+
+    
+    .o-comparison .o-comparison-boxes{
+        flex-direction: column;
+        
+        .o-comparison-box{
+            width:100%;
+        }
+
+    }
+
+    //SELFSERVICE
+    .o-selfservice-container{
+        margin-top:40px;
+        flex-direction: row;
+        height:auto;
+        .o-selfservice{
+            width:50%;
+            height:350px;
+        }
+
+        .o-selfservice-app{
+            margin-top:40px;
+            width:50%;
+            padding:25px 15px;
+            height:350px;
+        }
+
+        .o-selfservice-app-content{
+            padding-left:150px;
+
+            img{
+                margin-top:10px;
+            }
+        }
+    }
+
+    //ØRSTEDSHOP
+    .o-orstedshop{
+        margin-top:40px;
+        flex-direction: row;
+        height:auto;
+        border:0;
+
+        .o-orstedshop-img{
+            width:50%;
+            background-position: center bottom;
+            height:350px;
+        }
+
+        .o-orstedshop-txt{
+            margin-top:40px;
+            width:50%;
+            padding:30px;
+            
+        }
+
+        .o-selfservice-app-content{
+            padding-left:150px;
+
+            img{
+                margin-top:10px;
+            }
+        }
+    }
+  }
+
+
+}
+
+
+/* PHONE LANDSCAPE */
+@media only screen and (max-device-width: 767px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  #o-result{
+    .o-leftside-img{
+        display: none;
+    }
+
+    .o-rightside-content{
+        padding: 40px 0 70px 0;
+    }
+
+    // TIPS
+    .o-tips-container{
+        flex-direction: column;
+        flex-wrap: nowrap
+    }
+
+    .o-tips-container.active{
+        max-height: 3000px;
+    }
+
+    .o-tip{
+        width:100%;
+        padding:15px 0;
+        text-align: center;
+    }
+
+    //COMPARISON
+    .o-comparison-top{
+        flex-direction: column;
+    }
+
+    .o-comparison .o-comparison-top{
+        align-items:flex-start;
+
+        .o-comparison-average-box{
+            margin-left:0;
+        }
+    }
+
+    
+    .o-comparison .o-comparison-boxes{
+        flex-direction: column;
+        
+        .o-comparison-box{
+            width:100%;
+        }
+
+    }
+
+    //SELFSERVICE
+    .o-selfservice-container{
+        margin-top:40px;
+        flex-direction: column;
+        height:auto;
+        .o-selfservice{
+            width:100%;
+            height:350px;
+        }
+
+        .o-selfservice-app{
+            margin-top:40px;
+            width:100%;
+            padding:25px 15px;
+            height:350px;
+        }
+
+        .o-selfservice-app-content{
+            padding-left:220px;
+
+            img{
+                margin-top:10px;
+            }
+        }
+    }
+
+    //ØRSTEDSHOP
+    .o-orstedshop{
+        margin-top:40px;
+        flex-direction: column;
+        height:auto;
+        border:0;
+
+        .o-orstedshop-img{
+            width:100%;
+            background-position: center bottom;
+            height:350px;
+        }
+
+        .o-orstedshop-txt{
+            margin-top:40px;
+            width:100%;
+            padding:25px 0;
+            
+        }
+
+        .o-selfservice-app-content{
+            padding-left:150px;
+
+            img{
+                margin-top:10px;
+            }
+        }
+    }
+  }
+
+}
+
+/* PHONE PORTRAIT */
+@media only screen and (max-device-width: 767px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  #o-result{
+    .o-leftside-img{
+        display: none;
+    }
+
+    .o-rightside-content{
+        padding: 40px 0 70px 0;
+    }
+
+    .o-conclusion{
+        .o-subheading{
+            padding:0;
+        }
+
+        .o-subsubheading{
+            // font-size: 19px;
+            // margin-botto:20px;
+        }
+    }
+
+    // TIPS
+    .o-tips-container{
+        flex-direction: column;
+        flex-wrap: nowrap
+    }
+
+    .o-tips-container.active{
+        max-height: 3000px;
+    }
+
+    .o-tip{
+        width:100%;
+        padding:15px 0;
+        text-align: center;
+    }
+
+    //COMPARISON
+    .o-comparison-top{
+        flex-direction: column;
+    }
+
+    .o-comparison .o-comparison-top{
+        align-items:flex-start;
+        text-align: left !important;
+
+        .o-comparison-average-box{
+            margin-left:0;
+        }
+    }
+
+    
+    .o-comparison .o-comparison-boxes{
+        flex-direction: column;
+        
+        .o-comparison-box{
+            width:100%;
+        }
+
+    }
+
+    //SELFSERVICE
+    .o-selfservice-container{
+        margin-top:40px;
+        flex-direction: column;
+        height:auto;
+        .o-selfservice{
+            width:100%;
+        }
+
+        .o-selfservice-app{
+            margin-top:40px;
+            width:100%;
+            padding:25px 15px;
+        }
+
+        .o-selfservice-app-content{
+            padding-left:150px;
+
+            img{
+                margin-top:10px;
+            }
+        }
+    }
+
+    //ØRSTEDSHOP
+    .o-orstedshop{
+        margin-top:40px;
+        flex-direction: column;
+        height:auto;
+        border:0;
+
+        .o-orstedshop-img{
+            width:100%;
+            background-position: center bottom;
+            height:350px;
+        }
+
+        .o-orstedshop-txt{
+            margin-top:40px;
+            width:100%;
+            padding:25px 0;
+            
+        }
+
+        .o-selfservice-app-content{
+            padding-left:150px;
+
+            img{
+                margin-top:10px;
+            }
+        }
+    }
+  }
+  
+  
+}
